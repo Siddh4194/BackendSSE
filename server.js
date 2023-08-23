@@ -3,14 +3,14 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const env = require('dotenv').config();
-const cors = require('cors');
+// const cors = require('cors');
 
 // set up the cors for the ss events
-app.use(cors({
-    origin:['https://shri-swami-samartha.vercel.app'],
-    methods:['GET', 'POST'],
-    credentials:true
-  }));
+// app.use(cors({
+//     origin:['https://shri-swami-samartha.vercel.app'],
+//     methods:['GET', 'POST'],
+//     credentials:true
+//   }));
 
 
 // mongoose connection is checked first
