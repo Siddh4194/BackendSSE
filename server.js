@@ -49,11 +49,11 @@ const contactEvent = new mongoose.Schema({
   // /bad responce
   const Contact = mongoose.model("ContactsEventWebSite", contactEvent);
 
-router.get("/contact", function(req, res, next) {
+app.get("/contact", function(req, res, next) {
     // res.send("you are doing right job")
     res.send({message:"success"});
     })
-router.post("/", function(req, res, next) {
+app.post("/contact", function(req, res, next) {
       // res.send("you are doing right job")
       const contact = new Contact({
         name:req.body.name,
