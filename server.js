@@ -69,7 +69,7 @@ app.post("/contact", function(req, res, next) {
 
 
 app.get('/',(req,res)=>{
-    res.json("you are damn monster!");
+    res.send("you are damn monster!");
 });
 
 
