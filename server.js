@@ -29,9 +29,9 @@ db.once('open', function() {
 
 // App setup
 const app = express();
-app.use(
-  express.urlencoded({ extended: true })
-);
+    // app.use(
+    //   express.urlencoded({ extended: true })
+    // );
   
 app.use(express.json());
 app.use(bodyparser.urlencoded({extended:true}));
