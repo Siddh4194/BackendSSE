@@ -69,7 +69,7 @@ router.post("/", function(req, res, next) {
 
 
 app.get('/',(req,res)=>{
-    res.send("you are damn monster!");
+    res.json("you are damn monster!");
 });
 
 
