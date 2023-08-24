@@ -134,7 +134,10 @@ app.get("/testfetch", async(req, res, next) => {
 
 
 app.get('/',(req,res)=>{
-    res.send("you are damn monster!");
+    testmonial.find({}).then(data => {
+            res.send({status:"ok",data:data})
+    })
+    // res.send("you are damn monster!");
 });
 
 
