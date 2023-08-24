@@ -67,7 +67,13 @@ app.post("/contact", function(req, res, next) {
       res.send(req.body);
 })
 
-
+const contactEvent = new mongoose.Schema({
+    name:String,
+    number:Number,
+    event:String,
+    place:String
+  });
+  
 
 
 app.get('/',(req,res)=>{
