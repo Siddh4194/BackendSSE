@@ -29,8 +29,6 @@ app.use(
   
 app.use(express.json());//we can assign the limits
 app.use(bodyparser.urlencoded({extended:true}));
-app.use("/addOne",AddOneInteractionRouter);
-app.use('/testfetch', testmonialRouter);
 
 
 // set up the cors for the ss events
@@ -42,7 +40,7 @@ app.use('/testfetch', testmonialRouter);
 
 // Save the contact forms
 
-
+// contact form mongodb
 const contactEvent = new mongoose.Schema({
     name:String,
     number:Number,
@@ -57,7 +55,7 @@ app.get("/contact", function(req, res, next) {
     // res.send("you are doing right job")
     res.send({message:"success"});
     })
-app.post("/", function(req, res, next) {
+app.post("/contact", function(req, res, next) {
       // res.send("you are doing right job")
       const contact = new Contact({
         name:req.body.name,
