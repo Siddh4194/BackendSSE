@@ -99,6 +99,40 @@ const People = new mongoose.Schema({
     }
 })
 
+//testimonials are imported
+const TesmonialsSchema = new mongoose.Schema({
+    name:String,
+    comment:String
+  }
+  ,{
+    colllection:"TestimonialCollection"
+  });
+  
+  const testmonial = mongoose.model("TestimonialCollection", TesmonialsSchema);
+
+  app.post("/testfetch", (req, res, next) => {
+    try{
+        const comm = new testmonial({
+            name:req.body.name,
+            comment:req.body.comment
+        })
+        comm.save();
+        res.send({data:"stored"})
+    } catch(err){
+        res.send({status:"Error",data:err});
+    }
+})
+
+app.get("/testfetch", async(req, res, next) => {
+    try{
+        await testmonial.find({}).then(data => {
+            res.send({status:"ok",data:data})
+        })
+    } catch(err){
+        res.send({status:"Error",data:err});
+    }
+})
+
 
 
 app.get('/',(req,res)=>{
