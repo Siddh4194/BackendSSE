@@ -73,7 +73,32 @@ const contactEvent = new mongoose.Schema({
     event:String,
     place:String
   });
+
+
+// people interactionwith the web
+const People = new mongoose.Schema({
+    no:Number,
+    date:Date
+  }
+  ,{
+    colllection:"PeopleCollectionEvent"
+  });
   
+  const count = mongoose.model("PeopleCollectionEvent", People);
+
+  app.post("/addOne", (req, res, next) => {
+    try{
+        const one = new count({
+            no:req.body.no,
+            date:req.body.date
+        })
+        one.save();
+        res.send({data:"stored"})
+    } catch(err){
+        res.send({status:"Error",data:err});
+    }
+})
+
 
 
 app.get('/',(req,res)=>{
