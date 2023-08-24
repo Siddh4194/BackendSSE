@@ -5,8 +5,6 @@ const mongoose = require("mongoose");
 const env = require('dotenv').config();
 const cors = require('cors');
 // var ContactRouter = require('./routes/ContactAPI');
-var testmonialRouter = require('./routes/testimonial');
-var AddOneInteractionRouter = require("./routes/noOfPeople");
 // mongoose connection is checked first
 var pass = process.env.PASS_DB;
 
