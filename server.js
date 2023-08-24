@@ -30,11 +30,11 @@ app.use(bodyparser.urlencoded({extended:true}));
 
 
 // set up the cors for the ss events
-// app.use(cors({
-//   origin:['https://shri-swami-samartha.vercel.app'],
-//   methods:['GET', 'POST'],
-//   credentials:true
-// }));
+app.use(cors({
+  origin:['https://shri-swami-samartha.vercel.app'],
+  methods:['GET', 'POST'],
+  credentials:true
+}));
 
 // Save the contact forms
 
