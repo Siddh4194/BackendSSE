@@ -65,13 +65,6 @@ app.post("/contact", function(req, res, next) {
       res.send(req.body);
 })
 
-const contactEvent = new mongoose.Schema({
-    name:String,
-    number:Number,
-    event:String,
-    place:String
-  });
-
 
 // people interactionwith the web
 const People = new mongoose.Schema({
@@ -134,10 +127,7 @@ app.get("/testfetch", async(req, res, next) => {
 
 
 app.get('/',(req,res)=>{
-    testmonial.find({}).then(data => {
-            res.send({status:"ok",data:data})
-    })
-    // res.send("you are damn monster!");
+    res.send("you are damn monster!");
 });
 
 
