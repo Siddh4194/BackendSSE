@@ -4,8 +4,9 @@ const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const env = require('dotenv').config();
 const cors = require('cors');
-
-
+// var ContactRouter = require('./routes/ContactAPI');
+var testmonialRouter = require('./routes/testimonial');
+var AddOneInteractionRouter = require("./routes/noOfPeople");
 // mongoose connection is checked first
 var pass = process.env.PASS_DB;
 
@@ -26,9 +27,10 @@ app.use(
   express.urlencoded({ extended: true })
 );
   
-app.use(express.json());
+app.use(express.json());//we can assign the limits
 app.use(bodyparser.urlencoded({extended:true}));
-
+app.use("/addOne",AddOneInteractionRouter);
+app.use('/testfetch', testmonialRouter);
 
 
 // set up the cors for the ss events
