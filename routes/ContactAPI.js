@@ -12,7 +12,7 @@ mongoose.connect(pass, {
 
 const contactEvent = new mongoose.Schema({
     name:String,
-    number:Number,
+    number:String,
     event:String,
     place:String
   });
