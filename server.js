@@ -105,13 +105,13 @@ app.get("/addOne", (req, res, next) => {
     const day =String(date.getDay() + 1).padStart(2,'0');
     const formattedDate = `${year}-${month}-${day}`;
     res.send(formattedDate);
-    count.findOneAndUpdate(
-        {date : formattedDate},
-        {$inc:{no : 1}},
-        {new:true , upsert:true}
-        )
-      .catch(error => console.error("Error : ",error))
-    )
+    // count.findOneAndUpdate(
+    //     {date : formattedDate},
+    //     {$inc:{no : 1}},
+    //     {new:true , upsert:true}
+    //     )
+    //   .catch(error => console.error("Error : ",error))
+    // )
 })
 
 //testimonials are imported
