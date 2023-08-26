@@ -78,23 +78,23 @@ const People = new mongoose.Schema({
   const count = mongoose.model("PeopleCollectionEvent", People);
 
   app.post("/addOne", (req, res, next) => {
-    // try{
-    //     const one = new count({
-    //         no:req.body.no,
-    //         date:req.body.date
-    //     })
-    //     one.save();
-    //     res.send({data:"stored"})
-    // } catch(err){
-    //     res.send({status:"Error",data:err});
-    // }
-    count.findOneAndUpdate(
-        {date : new Date()},
-        {$inc:{no : 1}},
-        {new:true , upsert:true}
-        )
-      .catch(error => console.error("Error : ",error))
-    )
+    try{
+        const one = new count({
+            no:req.body.no,
+            date:req.body.date
+        })
+        one.save();
+        res.send({data:"stored"})
+    } catch(err){
+        res.send({status:"Error",data:err});
+    }
+    // count.findOneAndUpdate(
+    //     {date : new Date()},
+    //     {$inc:{no : 1}},
+    //     {new:true , upsert:true}
+    //     )
+    //   .catch(error => console.error("Error : ",error))
+    // )
 })
 
 //testimonials are imported
