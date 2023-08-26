@@ -101,8 +101,8 @@ app.get("/addOne", (req, res, next) => {
     }
     const currentDate = new Date();
     const year = currentDate.getFullYear();
-    const month =String(date.getMonth() + 1).padStart(2,'0');
-    const day =String(date.getDay() + 1).padStart(2,'0');
+    const month =String(currentDate.getMonth() + 1).padStart(2,'0');
+    const day =(currentDate.getDay());
     const formattedDate = `${year}-${month}-${day}`;
     res.send(formattedDate);
     // count.findOneAndUpdate(
