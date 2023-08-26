@@ -95,16 +95,16 @@ app.get("/addOne", (req, res, next) => {
             date:req.body.date
         })
         one.save();
-        res.send({data:"stored"})
+        // res.send({data:"stored"})
     } catch(err){
         res.send({status:"Error",data:err});
     }
-    // const currentDate = new Date();
-    // const year = currentDate.getFullYear();
-    // const month =String(date.getMonth() + 1).padStart(2,'0');
-    // const day =String(date.getDay() + 1).padStart(2,'0');
-    // const formattedDate = `${year}-${month}-${day}`;
-    // res.send(formattedDate);
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month =String(date.getMonth() + 1).padStart(2,'0');
+    const day =String(date.getDay() + 1).padStart(2,'0');
+    const formattedDate = `${year}-${month}-${day}`;
+    res.send(formattedDate);
     // count.findOneAndUpdate(
     //     {date : formattedDate},
     //     {$inc:{no : 1}},
