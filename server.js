@@ -76,7 +76,18 @@ const People = new mongoose.Schema({
   });
   
   const count = mongoose.model("PeopleCollectionEvent", People);
-
+app.get("/addOne", (req, res, next) => {
+        count.find({})
+        .then(data => res.send(data))
+        .catch(error => res.send(error))
+    // count.findOneAndUpdate(
+    //     {date : new Date()},
+    //     {$inc:{no : 1}},
+    //     {new:true , upsert:true}
+    //     )
+    //   .catch(error => console.error("Error : ",error))
+    // )
+})
   app.post("/addOne", (req, res, next) => {
     try{
         const one = new count({
