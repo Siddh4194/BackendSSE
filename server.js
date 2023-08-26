@@ -69,7 +69,7 @@ app.post("/contact", function(req, res, next) {
 // people interactionwith the web
 const People = new mongoose.Schema({
     no:Number,
-    date:Date
+    date:String
   }
   ,{
     colllection:"PeopleCollectionEvent"
@@ -88,7 +88,7 @@ app.get("/addOne", (req, res, next) => {
     //   .catch(error => console.error("Error : ",error))
     // )
 })
-  app.post("/addOne", (req, res, next) => {
+  app.put("/addOne", (req, res, next) => {
     // try{
     //     const one = new count({
     //         no:req.body.no,
@@ -105,13 +105,13 @@ app.get("/addOne", (req, res, next) => {
     const day =String(date.getDay() + 1).padStart(2,'0');
     const formattedDate = `${year}-${month}-${day}`;
     res.send(formattedDate);
-    // count.findOneAndUpdate(
-    //     {date : formattedDate},
-    //     {$inc:{no : 1}},
-    //     {new:true , upsert:true}
-    //     )
-    //   .catch(error => console.error("Error : ",error))
-    // )
+    count.findOneAndUpdate(
+        {date : formattedDate},
+        {$inc:{no : 1}},
+        {new:true , upsert:true}
+        )
+      .catch(error => console.error("Error : ",error))
+    )
 })
 
 //testimonials are imported
