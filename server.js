@@ -89,29 +89,28 @@ app.get("/addOne", (req, res, next) => {
     // )
 })
   app.put("/addOne", (req, res, next) => {
-    try{
-        const one = new count({
-            no:req.body.no,
-            date:req.body.date
-        })
-        one.save();
-        // res.send({data:"stored"})
-    } catch(err){
-        res.send({status:"Error",data:err});
-    }
+    // try{
+    //     const one = new count({
+    //         no:req.body.no,
+    //         date:req.body.date
+    //     })
+    //     one.save();
+    //     // res.send({data:"stored"})
+    // } catch(err){
+    //     res.send({status:"Error",data:err});
+    // }
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month =String(currentDate.getMonth() + 1).padStart(2,'0');
     const day =(currentDate.getDay());
     const formattedDate = `${year}-${month}-${day}`;
-    res.send(formattedDate);
-    // count.findOneAndUpdate(
-    //     {date : formattedDate},
-    //     {$inc:{no : 1}},
-    //     {new:true , upsert:true}
-    //     )
-    //   .catch(error => console.error("Error : ",error))
-    // )
+    count.findOneAndUpdate(
+        {date : formattedDate},
+        {$inc:{no : 1}},
+        {new:true , upsert:true}
+        )
+      .catch(error => console.error("Error : ",error))
+    )
 })
 
 //testimonials are imported
