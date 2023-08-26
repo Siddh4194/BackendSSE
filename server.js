@@ -93,7 +93,7 @@ const People = new mongoose.Schema({
         {$inc:{no : 1}},
         {new:true , upsert:true}
         )
-      .catch(error => console.error("Error : ",error)
+      .catch(error => console.error("Error : ",error))
     )
 })
 
